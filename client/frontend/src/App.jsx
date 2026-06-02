@@ -10,7 +10,7 @@ import ProtectedRoute from "./Components/Common/ProtectedRoute";
 import Login from "./Components/auth/Login";
 import Register from "./Components/auth/Register";
 import ForgetPassword from "./Components/auth/ForgetPassword";
-import ResetPassword from "./Components/auth/Resetpassword";
+import ResetPassword from "./Components/auth/ResetPassword";
 
 // Pages
 import Home from "./Components/Pages/Home";
@@ -25,7 +25,7 @@ import NotFound from "./Components/Pages/NotFound";
 
 // Booking
 import BookingSummary from "./Components/Booking/BookingSummary";
-import PassengerForm from "./Components/Booking/passengerForm";
+import PassengerForm from "./Components/Booking/PassengerForm";
 import TicketCard from "./Components/Booking/TicketCard";
 import BookingHistory from "./Components/Booking/BookingHistrory";
 
