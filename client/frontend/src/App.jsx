@@ -7,10 +7,10 @@ import Footer from "./Components/Common/Footer";
 import ProtectedRoute from "./Components/Common/ProtectedRoute";
 
 // Auth
-import Login from "./Components/Auth/Login";
-import Register from "./Components/Auth/Register";
-import ForgetPassword from "./Components/Auth/ForgetPassword";
-import ResetPassword from "./Components/Auth/ResetPassword";
+import Login from "./Components/auth/Login";
+import Register from "./Components/auth/Register";
+import ForgetPassword from "./Components/auth/ForgetPassword";
+import ResetPassword from "./Components/auth/Resetpassword";
 
 // Pages
 import Home from "./Components/Pages/Home";
@@ -25,7 +25,7 @@ import NotFound from "./Components/Pages/NotFound";
 
 // Booking
 import BookingSummary from "./Components/Booking/BookingSummary";
-import PassengerForm from "./Components/Booking/PassengerForm";
+import PassengerForm from "./Components/Booking/passengerForm";
 import TicketCard from "./Components/Booking/TicketCard";
 import BookingHistory from "./Components/Booking/BookingHistrory";
 
@@ -35,11 +35,11 @@ import PaymentSuccess from "./Components/Payment/PaymentSuccess";
 import PaymentFailed from "./Components/Payment/PaymentFailed";
 
 // Admin Pages
-import Dashboard from "./Components/Pages/Admin/Dashboard";
-import ManageBuses from "./Components/Pages/Admin/ManageBuses";
-import ManageBookings from "./Components/Pages/Admin/ManageBookings";
-import Users from "./Components/Pages/Admin/Users";
-import Reports from "./Components/Pages/Admin/Reports";
+import Dashboard from "./Components/Pages/admin/Dashboard";
+import ManageBuses from "./Components/Pages/admin/ManageBuses";
+import ManageBookings from "./Components/Pages/admin/ManageBookings";
+import Users from "./Components/Pages/admin/Users";
+import Reports from "./Components/Pages/admin/Reports";
 
 // Admin Components
 import DashboardStats from "./Components/Admin/DashboardStats";
