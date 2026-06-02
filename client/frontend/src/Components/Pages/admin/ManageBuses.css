@@ -1,0 +1,77 @@
+.bus-container {
+  padding: 40px;
+  min-height: 100vh;
+  background: #f4f7fb;
+}
+
+/* TOP BAR */
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.top-bar h1 {
+  color: #222;
+}
+
+/* DASHBOARD BUTTON */
+
+.dashboard-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #0077ff;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dashboard-btn:hover {
+  background: #005ed9;
+}
+
+/* TABLE */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+th {
+  background: #0077ff;
+  color: white;
+  padding: 16px;
+  text-align: left;
+}
+
+td {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+  background: #f8fbff;
+}
+
+/* EDIT BUTTON */
+
+.edit-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #28a745;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-btn:hover {
+  background: #1f8a39;
+}

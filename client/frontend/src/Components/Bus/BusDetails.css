@@ -1,0 +1,18 @@
+.bus-details {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.detail-box {
+  background: #eef4ff;
+  padding: 20px;
+  border-radius: 14px;
+}

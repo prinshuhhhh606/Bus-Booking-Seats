@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+:root{
+  --primary:#4f46e5;
+  --secondary:#7c3aed;
+  --dark:#0f172a;
+  --gray:#64748b;
+  --border:#e2e8f0;
+
+  --gradient:
+  linear-gradient(
+    135deg,
+    #4f46e5,
+    #7c3aed
+  );
+}
+
+/* SEARCHBAR */
+
+.searchbar{
+  width:100%;
+
+  display:grid;
+  grid-template-columns:
+  repeat(4,1fr);
+
+  gap:22px;
+
+  padding:28px;
+
+  border-radius:28px;
+
+  background:
+  rgba(255,255,255,0.9);
+
+  backdrop-filter:blur(16px);
+
+  border:
+  1px solid rgba(255,255,255,0.3);
+
+  box-shadow:
+  0 20px 45px rgba(0,0,0,0.08);
+}
+
+/* INPUT GROUP */
+
+.search-input-group{
+  display:flex;
+  flex-direction:column;
+}
+
+.search-input-group label{
+  margin-bottom:10px;
+
+  font-size:0.95rem;
+  font-weight:600;
+
+  color:var(--dark);
+}
+
+/* INPUT */
+
+.search-input-group input{
+  width:100%;
+
+  padding:16px 18px;
+
+  border-radius:18px;
+
+  border:1px solid var(--border);
+
+  background:white;
+
+  outline:none;
+
+  font-size:0.95rem;
+  color:var(--dark);
+
+  transition:0.3s ease;
+}
+
+.search-input-group input:focus{
+  border-color:var(--primary);
+
+  transform:translateY(-2px);
+
+  box-shadow:
+  0 10px 25px rgba(79,70,229,0.15);
+}
+
+/* BUTTON */
+
+.searchbar-btn{
+  margin-top:34px;
+
+  height:58px;
+
+  border:none;
+  outline:none;
+
+  border-radius:18px;
+
+  background:var(--gradient);
+
+  color:white;
+
+  font-size:1rem;
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:0.3s ease;
+
+  box-shadow:
+  0 15px 35px rgba(79,70,229,0.28);
+}
+
+.searchbar-btn:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+  0 20px 40px rgba(79,70,229,0.35);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+  .searchbar{
+    grid-template-columns:
+    repeat(2,1fr);
+  }
+}
+
+@media(max-width:650px){
+
+  .searchbar{
+    grid-template-columns:1fr;
+
+    padding:22px;
+  }
+
+  .searchbar-btn{
+    margin-top:10px;
+  }
+}

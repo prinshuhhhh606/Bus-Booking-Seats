@@ -1,0 +1,56 @@
+.reports-container {
+  padding: 40px;
+  min-height: 100vh;
+  background: #f4f7fb;
+}
+
+/* TOP BAR */
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* DASHBOARD BUTTON */
+
+.dashboard-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #0077ff;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dashboard-btn:hover {
+  background: #005ed9;
+}
+
+/* REPORT CARD */
+
+.report-card {
+  background: white;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.report-card:hover {
+  transform: translateY(-5px);
+}
+
+.report-card h2 {
+  margin-bottom: 12px;
+  color: #222;
+}
+
+.report-card p {
+  font-size: 28px;
+  font-weight: bold;
+  color: green;
+}

@@ -1,0 +1,44 @@
+.failed-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fef2f2;
+}
+
+.failed-card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.crossmark {
+  font-size: 60px;
+  color: #dc2626;
+  margin-bottom: 15px;
+}
+
+.failed-card h1 {
+  color: #991b1b;
+}
+
+.failed-card p {
+  margin: 15px 0;
+  color: #4b5563;
+}
+
+.failed-card button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #dc2626;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.failed-card button:hover {
+  background: #b91c1c;
+}

@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+:root{
+  --primary:#4f46e5;
+  --secondary:#7c3aed;
+  --dark:#0f172a;
+  --gray:#64748b;
+
+  --gradient:
+  linear-gradient(
+    135deg,
+    #4f46e5,
+    #7c3aed
+  );
+}
+
+/* WRAPPER */
+
+.protected-wrapper{
+  width:100%;
+  min-height:100vh;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #eef2ff,
+    #f8fafc
+  );
+}
+
+/* CARD */
+
+.protected-card{
+  width:100%;
+  max-width:450px;
+
+  padding:55px 35px;
+
+  border-radius:32px;
+
+  background:
+  rgba(255,255,255,0.9);
+
+  backdrop-filter:blur(16px);
+
+  text-align:center;
+
+  box-shadow:
+  0 20px 45px rgba(0,0,0,0.08);
+}
+
+/* ICON */
+
+.protected-icon{
+  width:100px;
+  height:100px;
+
+  margin:auto auto 30px;
+
+  border-radius:50%;
+
+  background:var(--gradient);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:2.5rem;
+
+  color:white;
+
+  box-shadow:
+  0 15px 35px rgba(79,70,229,0.3);
+}
+
+/* TITLE */
+
+.protected-card h1{
+  font-size:2rem;
+  font-weight:700;
+
+  margin-bottom:15px;
+
+  color:var(--dark);
+}
+
+/* TEXT */
+
+.protected-card p{
+  color:var(--gray);
+
+  line-height:1.8;
+
+  margin-bottom:35px;
+
+  font-size:1rem;
+}
+
+/* BUTTON */
+
+.protected-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:15px 30px;
+
+  border-radius:18px;
+
+  text-decoration:none;
+
+  background:var(--gradient);
+
+  color:white;
+
+  font-weight:600;
+
+  transition:0.3s ease;
+
+  box-shadow:
+  0 15px 35px rgba(79,70,229,0.25);
+}
+
+.protected-btn:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+  0 20px 40px rgba(79,70,229,0.35);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+  .protected-card{
+    padding:45px 25px;
+  }
+
+  .protected-card h1{
+    font-size:1.7rem;
+  }
+
+  .protected-icon{
+    width:85px;
+    height:85px;
+
+    font-size:2rem;
+  }
+}

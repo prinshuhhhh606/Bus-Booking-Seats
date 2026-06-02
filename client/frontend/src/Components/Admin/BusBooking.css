@@ -1,0 +1,28 @@
+.booking-container {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  margin: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.1);
+}
+
+.booking-container h2 {
+  margin-bottom: 20px;
+}
+
+.booking-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.booking-container th {
+  background: #0f172a;
+  color: white;
+  padding: 14px;
+}
+
+.booking-container td {
+  padding: 14px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}

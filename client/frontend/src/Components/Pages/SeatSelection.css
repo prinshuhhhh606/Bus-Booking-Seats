@@ -1,0 +1,183 @@
+/* SeatSelection.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+}
+
+.seat-page {
+  min-height: 100vh;
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+}
+
+/* LEFT */
+
+.seat-layout-section {
+  flex: 2;
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.top-bar {
+  margin-bottom: 30px;
+}
+
+.top-bar h1 {
+  font-size: 34px;
+  color: #222;
+}
+
+.top-bar p {
+  margin-top: 8px;
+  color: #666;
+}
+
+/* LEGEND */
+
+.legend {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* SEATS */
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.seat {
+  height: 60px;
+  background: #eaf2ff;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  color: #1976d2;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.seat:hover {
+  transform: scale(1.05);
+}
+
+.available {
+  background: #eaf2ff;
+}
+
+.selected {
+  background: #1976d2;
+  color: white;
+}
+
+.booked {
+  background: #c7c7c7;
+  color: white;
+  cursor: not-allowed;
+}
+
+/* RIGHT */
+
+.booking-summary {
+  flex: 1;
+}
+
+.summary-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 30px;
+}
+
+.booking-summary h2 {
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.summary-card p {
+  margin-bottom: 14px;
+  color: #444;
+}
+
+.selected-seat-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0 25px;
+}
+
+.selected-seat-list span {
+  background: #1976d2;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+}
+
+.price-box {
+  margin: 30px 0;
+}
+
+.price-box h3 {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.price-box h1 {
+  color: #1976d2;
+  font-size: 38px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 18px;
+  border: none;
+  background: #1976d2;
+  color: white;
+  font-size: 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.checkout-btn:hover {
+  background: #1259a7;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+  .seat-page {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .seat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}

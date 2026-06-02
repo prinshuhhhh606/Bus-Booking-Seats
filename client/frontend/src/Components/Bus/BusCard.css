@@ -1,0 +1,32 @@
+.bus-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  background: white;
+  border-radius: 18px;
+  margin-bottom: 25px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.bus-left h2 {
+  margin-bottom: 10px;
+}
+
+.timing {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.bus-right {
+  text-align: right;
+}
+
+.bus-right button {
+  margin-top: 15px;
+  padding: 12px 18px;
+  border: none;
+  background: #1976d2;
+  color: white;
+  border-radius: 10px;
+}

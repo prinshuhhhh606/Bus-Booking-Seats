@@ -1,0 +1,49 @@
+
+.summary-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background: #f4f7fb;
+  min-height: 100vh;
+}
+
+.summary-card {
+  background: white;
+  width: 400px;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.summary-card h2 {
+  margin-bottom: 20px;
+}
+
+.route {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.summary-details p {
+  margin: 10px 0;
+  color: #444;
+}
+
+.confirm-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.confirm-btn:hover {
+  background: #1d4ed8;
+}

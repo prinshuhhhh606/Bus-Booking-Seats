@@ -1,0 +1,32 @@
+
+.ticket-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eef4ff;
+}
+
+.ticket-card {
+  width: 500px;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.ticket-info {
+  margin: 30px 0;
+}
+
+.ticket-info p {
+  margin-bottom: 14px;
+}
+
+.ticket-card button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  background: #1976d2;
+  color: white;
+  border-radius: 12px;
+}

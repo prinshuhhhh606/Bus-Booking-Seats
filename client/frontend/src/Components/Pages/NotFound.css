@@ -1,0 +1,26 @@
+
+.notfound-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f4f7fb;
+}
+
+.notfound-page h1 {
+  font-size: 120px;
+  color: #1976d2;
+}
+
+.notfound-page h2 {
+  margin-bottom: 20px;
+}
+
+.notfound-page a {
+  text-decoration: none;
+  background: #1976d2;
+  color: white;
+  padding: 14px 22px;
+  border-radius: 10px;
+}
