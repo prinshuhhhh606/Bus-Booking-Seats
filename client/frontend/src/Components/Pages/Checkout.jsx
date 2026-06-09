@@ -1,30 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Checkout.css";
 import { useNavigate, useLocation } from "react-router-dom";
+import { validateName, isValidPhone } from "../../utils/validators";
 
 const Checkout = () => {
   const navigate = useNavigate();
-
   const location = useLocation();
-
-  // DATA FROM BookingSummary
 
   const { passenger, booking } = location.state || {};
 
-  // SAFETY CHECK
+  const [formData, setFormData] = useState({
+    fullName: passenger?.fullName || "",
+    phone: passenger?.phone || "",
+  });
 
   if (!passenger || !booking) {
     return <h2>No Checkout Data Found</h2>;
   }
 
-  // PAYMENT HANDLER
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handlePayment = () => {
-    // AFTER PAYMENT SUCCESS
+    if (!validateName(formData.fullName)) {
+      alert("Please enter a valid name");
+      return;
+    }
+
+    if (!isValidPhone(formData.phone)) {
+      alert("Please enter a valid phone number");
+      return;
+    }
 
     navigate("/ticket", {
       state: {
-        passenger,
+        passenger: {
+          ...passenger,
+          fullName: formData.fullName,
+          phone: formData.phone,
+        },
         booking,
       },
     });
@@ -40,13 +58,23 @@ const Checkout = () => {
         <div className="form-group">
           <label>Full Name</label>
 
-          <input type="text" value={passenger.fullName} readOnly />
+          <input
+            type="text"
+            name="fullName"
+            value={formData.fullName}
+            onChange={handleChange}
+          />
         </div>
 
         <div className="form-group">
           <label>Phone</label>
 
-          <input type="text" value={passenger.phone} readOnly />
+          <input
+            type="text"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+          />
         </div>
 
         <div className="form-group">

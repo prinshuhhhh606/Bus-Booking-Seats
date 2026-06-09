@@ -1,5 +1,5 @@
 import React from "react";
-import "./TicketCard.css";
+import "../Booking/TicketCard.css";
 import { useNavigate } from "react-router-dom";
 
 const TicketCard = ({

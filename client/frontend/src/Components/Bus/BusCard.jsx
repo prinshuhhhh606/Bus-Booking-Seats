@@ -1,5 +1,6 @@
 import React from "react";
 import "./BusCard.css";
+import { formatDate } from "../../utils/formateData";
 
 const BusCard = ({ bus, navigate }) => {
   return (
@@ -7,6 +8,8 @@ const BusCard = ({ bus, navigate }) => {
       <h2>{bus.name}</h2>
 
       <p>{bus.type}</p>
+
+      <p className="journey-date">{formatDate(bus.journeyDate)}</p>
 
       <h3>₹{bus.price}</h3>
 

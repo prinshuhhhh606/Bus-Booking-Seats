@@ -1,0 +1,36 @@
+.bus-container {
+  max-width: 420px;
+  margin: auto;
+}
+
+.driver-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--seat-gap);
+}
+
+.seat {
+  width: var(--seat-size);
+  height: var(--seat-size);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.seat.available {
+  background: var(--success-color);
+}
+
+.seat.selected {
+  background: var(--primary-color);
+}
+
+.seat.booked {
+  background: var(--danger-color);
+  cursor: not-allowed;
+}

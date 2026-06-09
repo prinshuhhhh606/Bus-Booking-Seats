@@ -1,45 +1,104 @@
-import React from "react";
-import "./TicketPage.css";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import "../Pages/TicketPage.css";
+import { useNavigate, useLocation } from "react-router-dom";
+import { isValidPhone,isValidAge, validateName } from "../../utils/validators";
 
-const TicketPage = () => {
+const PassengerForm = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const bookingData = location.state;
+
+  const [formData, setFormData] = useState({
+    fullName: "",
+    age: "",
+    gender: "",
+    phone: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (
+      !formData.fullName ||
+      !formData.age ||
+      !formData.gender ||
+      !formData.phone
+    ) {
+      alert("Please fill all details");
+      return;
+    }
+
+    if (!validateName(formData.fullName)) {
+      alert("Enter a valid name");
+      return;
+    }
+
+    if (!isValidAge(formData.age)) {
+      alert("Enter a valid age");
+      return;
+    }
+
+    if (!isValidPhone(formData.phone)) {
+      alert("Enter a valid 10-digit phone number");
+      return;
+    }
+
+    navigate("/booking-summary", {
+      state: {
+        passenger: formData,
+        booking: bookingData,
+      },
+    });
+  };
 
   return (
-    <div className="ticket-page">
-      <div className="ticket-card">
-        <h1>Bus Ticket</h1>
+    <div className="form-container">
+      <form className="passenger-form" onSubmit={handleSubmit}>
+        <h2>Passenger Details</h2>
 
-        <div className="ticket-info">
-          <p>
-            <strong>Passenger:</strong> Aman Sharma
-          </p>
+        <input
+          type="text"
+          name="fullName"
+          placeholder="Full Name"
+          value={formData.fullName}
+          onChange={handleChange}
+        />
 
-          <p>
-            <strong>Bus:</strong> Raj Travels
-          </p>
+        <input
+          type="number"
+          name="age"
+          placeholder="Age"
+          value={formData.age}
+          onChange={handleChange}
+        />
 
-          <p>
-            <strong>Route:</strong> Indore → Bhopal
-          </p>
+        <select name="gender" value={formData.gender} onChange={handleChange}>
+          <option value="">Select Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
 
-          <p>
-            <strong>Seat:</strong> A1, A2
-          </p>
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone Number"
+          value={formData.phone}
+          onChange={handleChange}
+        />
 
-          <p>
-            <strong>Date:</strong> 25 May 2026
-          </p>
-        </div>
-
-        <button>Download Ticket</button>
-
-        <button onClick={() => navigate("/my-bookings")}>
-          View My Bookings
-        </button>
-      </div>
+        <button type="submit">Continue</button>
+      </form>
     </div>
   );
 };
 
-export default TicketPage;
+export default PassengerForm;

@@ -1,0 +1,10 @@
+:root {
+  --primary-color: #2563eb;
+  --success-color: #22c55e;
+  --danger-color: #ef4444;
+
+  --seat-size: 36px;
+  --seat-gap: 8px;
+
+  --border-radius: 8px;
+}

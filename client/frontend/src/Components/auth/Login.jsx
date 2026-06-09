@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import { isValidEmail, isValidPassword } from "../../utils/validators";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,6 +12,17 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
+    // Validation using utility
+    if (!isValidEmail(email)) {
+      alert("Please enter a valid email");
+      return;
+    }
+
+    if (!isValidPassword(password)) {
+      alert("Password must be at least 6 characters");
+      return;
+    }
+
     try {
       const response = await fetch("http://localhost:3000/login", {
         method: "POST",
@@ -19,6 +31,7 @@ const Login = () => {
         },
         body: JSON.stringify({ email, password }),
       });
+
       const data = await response.json();
 
       if (response.ok) {
@@ -32,6 +45,7 @@ const Login = () => {
       }
     } catch (error) {
       console.error("Error logging in:", error);
+      alert("Server error");
     }
   };
 
@@ -61,9 +75,11 @@ const Login = () => {
             Login
           </button>
         </form>
+
         <p className="forgot-link" onClick={() => navigate("/forget-password")}>
           Forgot Password?
         </p>
+
         <button className="signup-btn" onClick={() => navigate("/signup")}>
           Don't have an account? Sign up
         </button>

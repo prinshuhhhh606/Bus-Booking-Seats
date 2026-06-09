@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import "./PassengerForm.css";
-import { useNavigate, useLocation } from "react-router-dom";
 
+import { useNavigate, useLocation } from "react-router-dom";
+import {
+  isValidPhone,
+  isValidAge,
+  validateName,
+} from "../../utils/validators";
+import  "../Booking/PassengerForm.css";
 const PassengerForm = () => {
   const navigate = useNavigate();
-
   const location = useLocation();
 
-  // DATA FROM SeatSelection PAGE
-
-  const bookingData = location.state;
+  const bookingData = location.state || {};
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -18,33 +20,42 @@ const PassengerForm = () => {
     phone: "",
   });
 
-  // HANDLE INPUT CHANGE
-
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+    const { name, value } = e.target;
 
-  // FORM SUBMIT
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // SIMPLE VALIDATION
-
     if (
-      !formData.fullName ||
+      !formData.fullName.trim() ||
       !formData.age ||
       !formData.gender ||
-      !formData.phone
+      !formData.phone.trim()
     ) {
       alert("Please fill all details");
       return;
     }
 
-    // NAVIGATE TO BOOKING SUMMARY
+    if (!validateName(formData.fullName)) {
+      alert("Enter a valid name");
+      return;
+    }
+
+    if (!isValidAge(formData.age)) {
+      alert("Enter a valid age");
+      return;
+    }
+
+    if (!isValidPhone(formData.phone)) {
+      alert("Enter a valid 10-digit phone number");
+      return;
+    }
 
     navigate("/booking-summary", {
       state: {
@@ -73,13 +84,15 @@ const PassengerForm = () => {
           placeholder="Age"
           value={formData.age}
           onChange={handleChange}
+          min="1"
+          max="120"
         />
 
         <select name="gender" value={formData.gender} onChange={handleChange}>
           <option value="">Select Gender</option>
-          <option>Male</option>
-          <option>Female</option>
-          <option>Other</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
         </select>
 
         <input
@@ -88,6 +101,7 @@ const PassengerForm = () => {
           placeholder="Phone Number"
           value={formData.phone}
           onChange={handleChange}
+          maxLength="10"
         />
 
         <button type="submit">Continue</button>

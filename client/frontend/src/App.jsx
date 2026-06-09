@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { useEffect} from "react";
 
 // Common
 import Navbar from "./Components/Common/Navbar";
@@ -48,11 +49,33 @@ import EditBusForm from "./Components/Admin/EditBusForm";
 import BusTable from "./Components/Admin/BusTable";
 import BookingTable from "./Components/Admin/BookingTable";
 
+import SocketService from "./services/SocketService";
+import LocalStorageService from "./services/LocalstorageService";
+
 const App = () => {
   const isLoggedIn = true; // Later replace with auth state
 
+
+
+  useEffect(() => {
+    // Socket Connection
+    SocketService.connect("http://localhost:3000");
+
+    // Dummy User Save
+    LocalStorageService.setItem("user", {
+      id: 1,
+      name: "Prince",
+      role: "user",
+    });
+
+    return () => {
+      SocketService.disconnect();
+    };
+  }, []);
+
   return (
     <>
+    
       <Navbar
         isLoggedIn={isLoggedIn}
         user={{ name: "Prince" }}
@@ -282,6 +305,7 @@ const App = () => {
       <Footer />
     </>
   );
+
 };
 
 export default App;

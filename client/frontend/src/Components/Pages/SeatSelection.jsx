@@ -3,15 +3,19 @@
 import React, { useState } from "react";
 import "./SeatSelection.css";
 import { useNavigate } from "react-router-dom";
+import { calculateFare } from "../../utils/calculateFare";
+import { generateSeatMap } from "../../utils/generateSeatMap";
 
 const SeatSelection = () => {
   const navigate = useNavigate();
 
   const totalSeats = 40;
-
   const bookedSeats = [3, 7, 10, 15, 22];
 
   const [selectedSeats, setSelectedSeats] = useState([]);
+
+  // Generate seat numbers using utility
+  const seats = generateSeatMap(totalSeats);
 
   const handleSeatClick = (seat) => {
     if (bookedSeats.includes(seat)) return;
@@ -23,7 +27,8 @@ const SeatSelection = () => {
     }
   };
 
-  const totalPrice = selectedSeats.length * 799;
+  // Calculate fare using utility
+  const totalPrice = calculateFare(selectedSeats.length, 799);
 
   // CONTINUE BUTTON
   const handleContinue = () => {
@@ -49,7 +54,6 @@ const SeatSelection = () => {
       <div className="seat-layout-section">
         <div className="top-bar">
           <h1>Select Your Seats</h1>
-
           <p>Raj Travels • AC Sleeper</p>
         </div>
 
@@ -75,11 +79,8 @@ const SeatSelection = () => {
         {/* SEAT GRID */}
 
         <div className="seat-grid">
-          {[...Array(totalSeats)].map((_, index) => {
-            const seatNumber = index + 1;
-
+          {seats.map((seatNumber) => {
             const isBooked = bookedSeats.includes(seatNumber);
-
             const isSelected = selectedSeats.includes(seatNumber);
 
             return (
@@ -126,7 +127,6 @@ const SeatSelection = () => {
 
           <div className="price-box">
             <h3>Total Price</h3>
-
             <h1>₹ {totalPrice}</h1>
           </div>
 

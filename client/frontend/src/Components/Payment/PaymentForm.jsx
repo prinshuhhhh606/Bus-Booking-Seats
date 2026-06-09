@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./PaymentForm.css";
+import paymentService from "../../services/paymentService";
+import "../Payment/PaymentForm.css";
 
 const PaymentForm = () => {
   const navigate = useNavigate();
@@ -9,18 +10,45 @@ const PaymentForm = () => {
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cvv, setCvv] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validation
-    if (cardName.trim() === "" || cardNumber.length < 16 || cvv.length < 3) {
+    // Basic Validation
+    if (
+      cardName.trim() === "" ||
+      cardNumber.length !== 16 ||
+      cvv.length !== 3
+    ) {
       navigate("/payment-failed");
       return;
     }
 
-    // Success Navigate
-    navigate("/payment-success");
+    try {
+      setLoading(true);
+
+      const paymentData = {
+        cardName,
+        cardNumber,
+        expiry,
+        cvv,
+        amount: 500,
+        currency: "INR",
+      };
+
+      const response = await paymentService.createPayment(paymentData);
+
+      console.log("Payment Success:", response);
+
+      navigate("/payment-success");
+    } catch (error) {
+      console.error("Payment Failed:", error);
+
+      navigate("/payment-failed");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -64,7 +92,9 @@ const PaymentForm = () => {
           />
         </div>
 
-        <button type="submit">Pay Now</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Processing..." : "Pay Now"}
+        </button>
       </form>
     </div>
   );
